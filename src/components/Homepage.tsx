@@ -46,8 +46,6 @@ export function Homepage() {
       }));
   }, [applications]);
 
-  console.log("selected", selected);
-
   const filteredApplications = React.useMemo(() => {
     if (!applicationsWithTags) {
       return [];
@@ -93,8 +91,11 @@ export function Homepage() {
   return (
     <div className="mx-auto max-w-screen-xl py-24 w-full">
       <div className="pb-12">
-        <h1 className="font-bold text-3xl pb-2">Discover Grants with AI</h1>
+        <h1 className="font-bold text-3xl pb-2">Discover Projects with AI</h1>
         <h2>Find the best projects to donate to based on your interests.</h2>
+        <h2 className="font-bold pt-4">
+          Note: this app is experimental and may not be accurate.
+        </h2>
       </div>
       <ReactTags
         placeholderText="Click here to start!"
