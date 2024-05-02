@@ -217,9 +217,17 @@ export async function refreshApplications(refs: RoundRef[]): Promise<void> {
       if (!(await cache.has(key))) {
         const features = await throttledExtractFeaturesFromApplication(app);
         cache.set(key, features, 1000 * 60 * 60 * 24);
+        console.log("Extracted", progress, "of", total.length, "applications");
+      } else {
+        console.log(
+          "Extracted",
+          progress,
+          "of",
+          total.length,
+          "applications (cached)",
+        );
       }
       progress++;
-      console.log("Extracted", progress, "of", total.length, "applications");
     }),
   );
 }
