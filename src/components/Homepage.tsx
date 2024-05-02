@@ -83,10 +83,25 @@ export function Homepage({ applications }: { applications: Application[] }) {
   return (
     <div className="mx-auto max-w-screen-xl py-24 w-full">
       <div className="pb-12">
-        <h1 className="font-bold text-3xl pb-2">Discover Projects using AI</h1>
-        <h2>Find the best projects to donate to based on your interests.</h2>
-        <h2 className="font-bold pt-4">
+        <h1 className="font-bold text-4xl pb-4">GrantScan</h1>
+        <h2>
+          Find the best projects to donate to based on your interests. Click on
+          the search bar to get started!
+        </h2>
+        <h2 className="font-bold">
           Note: this app is experimental and may not be accurate.
+        </h2>
+        <h2 className="pt-8">
+          Check out{" "}
+          <a
+            className="underline"
+            href="https://all-about-gg20.streamlit.app/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            GrantsScope
+          </a>{" "}
+          for a more conversational assistant!
         </h2>
       </div>
       <ReactTags

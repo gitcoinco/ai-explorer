@@ -6,7 +6,7 @@ import { fetchAllApplicationsWithFeatures } from "@/actions";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Grants AI - Project Discovery",
+  title: "GrantScan - AI Project Discovery",
 };
 
 export default async function Home() {
