@@ -89,7 +89,7 @@ export function Homepage({ applications }: { applications: Application[] }) {
           the search bar to get started!
         </h2>
         <h2 className="font-bold">
-          Note: this app is experimental and may not be accurate.
+          Note: this app is experimental and may be buggy.
         </h2>
         <h2 className="pt-8">
           Check out{" "}
