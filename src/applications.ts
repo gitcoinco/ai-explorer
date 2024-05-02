@@ -3,7 +3,6 @@ import SqliteKeyv from "@keyv/sqlite";
 import OpenAI from "openai";
 import throttle from "p-throttle";
 
-const openai = new OpenAI({ apiKey: process.env.NEXT_APP_OPENAI_API_KEY });
 const cache = new Keyv({
   store: new SqliteKeyv("sqlite://cache.db"),
   namespace: "1",
@@ -204,6 +203,8 @@ export async function refreshApplications(refs: RoundRef[]): Promise<void> {
     );
   }
 
+  const openai = new OpenAI({ apiKey: process.env.NEXT_APP_OPENAI_API_KEY });
+
   const applicationChunks = await Promise.all(promises);
   const applications = applicationChunks.flat();
 
@@ -215,7 +216,10 @@ export async function refreshApplications(refs: RoundRef[]): Promise<void> {
     applications.map(async (app, _i, total) => {
       const key = `application:${app.chainId}:${app.roundId}:${app.id}:features`;
       if (!(await cache.has(key))) {
-        const features = await throttledExtractFeaturesFromApplication(app);
+        const features = await throttledExtractFeaturesFromApplication(
+          openai,
+          app,
+        );
         cache.set(key, features, 1000 * 60 * 60 * 24);
         console.log("Extracted", progress, "of", total.length, "applications");
       } else {
@@ -238,6 +242,7 @@ const throttledExtractFeaturesFromApplication = throttle({
 })(extractFeaturesFromApplication);
 
 async function extractFeaturesFromApplication(
+  openai: OpenAI,
   application: Application,
 ): Promise<Features | null> {
   const key = `application:${application.chainId}:${application.roundId}:${application.id}:features`;
