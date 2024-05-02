@@ -3,6 +3,8 @@ import { Metadata } from "next";
 import { Homepage } from "@/components/Homepage";
 import { fetchAllApplicationsWithFeatures } from "@/actions";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Grants AI - Project Discovery",
 };
