@@ -1,13 +1,11 @@
 "use client";
+
 import { ReactTags, Tag } from "react-tag-autocomplete";
-import { Application, fetchAllApplicationsWithFeatures } from "@/actions";
 import Image from "next/image";
 import React from "react";
+import type { Application } from "@/applications";
 
-export function Homepage() {
-  const [applications, setApplications] = React.useState<Application[] | null>(
-    null,
-  );
+export function Homepage({ applications }: { applications: Application[] }) {
   const applicationsWithTags = React.useMemo(() => {
     return applications?.map((application) => ({
       ...application,
@@ -70,12 +68,6 @@ export function Homepage() {
     },
     [selected],
   );
-
-  React.useEffect(() => {
-    fetchAllApplicationsWithFeatures().then((applications) => {
-      setApplications(applications);
-    });
-  }, []);
 
   if (applications === null) {
     return (
