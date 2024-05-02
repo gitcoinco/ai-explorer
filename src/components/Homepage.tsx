@@ -83,8 +83,8 @@ export function Homepage({ applications }: { applications: Application[] }) {
   return (
     <div className="mx-auto max-w-screen-xl py-24 w-full">
       <div className="pb-12">
-        <h1 className="font-bold text-4xl pb-4">GrantScan</h1>
-        <h2>
+        <h1 className="font-bold text-5xl pb-4">GrantScan</h1>
+        <h2 className="pb-2">
           Find the best projects to donate to based on your interests. Click on
           the search bar to get started!
         </h2>
