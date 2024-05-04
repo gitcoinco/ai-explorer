@@ -2,6 +2,12 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
+import posthog from "posthog-js";
+
+posthog.init("phc_rYxUqJ5TF6Y7znWFBSx0Z2a5eB2sKDOkWxDhvxuBKVa", {
+  api_host: "https://us.i.posthog.com",
+});
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {

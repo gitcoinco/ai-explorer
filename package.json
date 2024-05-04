@@ -16,9 +16,11 @@
     "next": "14.2.3",
     "openai": "^4.39.0",
     "p-throttle": "^6.1.0",
+    "posthog-js": "^1.130.2",
     "react": "^18",
     "react-dom": "^18",
     "react-tag-autocomplete": "^7.2.0",
+    "swr": "^2.2.5",
     "tsx": "^4.7.3"
   },
   "devDependencies": {
